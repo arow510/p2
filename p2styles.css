@@ -1,0 +1,26 @@
+.state {
+    margin-center:20px;
+    padding:10px;
+    border:1px solid red;
+    border-width: 50px;
+}
+
+.radios
+
+{
+    margin-center:20px;
+    padding:10px;
+    border:1px solid red;
+}
+
+
+body{
+
+
+  background-color:LightBlue;
+}
+
+h1, h2, h3 {
+	text-align: center;
+
+}
