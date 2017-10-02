@@ -1,6 +1,11 @@
 <?php
 
+require('Form.php');
 require('helpers.php');
+
+use DWA\Form;
+
+$form = new Form($_GET);
 
 $statesJson = file_get_contents('states.json');
 
@@ -11,6 +16,7 @@ if (isset($_GET['travel'])) {
     $travel = $_GET['travel'];
 } else {
     $travel = '';
+
 
 }
 
@@ -27,12 +33,24 @@ $caseSensitive = true;
 }
 
 
+#validate
+
+if($form->isSubmitted()){
+$errors = $form->validate([
+'search' => 'required'
+
+]);
+
+
+
+}
 
 $hasResults = true;
 if ($search == '') {
 return $states;
 
 }
+
 
 foreach ($states as $title => $state){
 if($caseSensitive) {

@@ -19,7 +19,7 @@
 
 <form method='GET' action='index.php'>
 
-  <label for='search'>Search:</label>
+  <label for='search'>Search (required):</label>
   <input type='text' name='search' id='search' value='<?=sanitize($search)?>'>
  <input type='checkbox' name='caseSensitive' id='caseSensitive' <?php if ($caseSensitive) echo'CHECKED'; ?>>
   <label for='caseSensitive'>Case Sensitive</label>
@@ -51,6 +51,14 @@
 
 
 </form>
+
+<?php if (isset($errors)) : ?>
+<ul>
+<?php foreach ($errors as $error) : ?>
+<li><?=$error?></li>
+<?php endforeach; ?>
+</ul>
+<?php endif ?>
 
 <?php if(!$hasResults) : ?>
   <div class='alaert alert-warning'>Your search did not match results.</div>
